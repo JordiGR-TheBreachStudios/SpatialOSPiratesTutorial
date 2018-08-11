@@ -33,24 +33,15 @@ namespace Assets.Gamelogic.Pirates.Behaviours
                 .SetTargetSpeed(Mathf.Clamp01(Input.GetAxis("Vertical")))
                 .SetTargetSteering(Input.GetAxis("Horizontal")));
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                // Port broadside (Fire the left cannons)
-                if (cannonFirer != null)
-                {
-                    cannonFirer.AttemptToFireCannons(-transform.right);
-                }
-            }
+			if (Input.GetKeyDown(KeyCode.Q))
+			{
+				ShipControlsWriter.Send(new ShipControls.Update().AddFireLeft(new FireLeft()));
+			}
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                // Starboard broadside (Fire the right cannons)
-                if (cannonFirer != null)
-                {
-                    cannonFirer.AttemptToFireCannons(transform.right);
-                }
-
-            }
-        }
+			if (Input.GetKeyDown(KeyCode.E))
+			{
+				ShipControlsWriter.Send(new ShipControls.Update().AddFireRight(new FireRight()));
+			}
+		}
     }
 }

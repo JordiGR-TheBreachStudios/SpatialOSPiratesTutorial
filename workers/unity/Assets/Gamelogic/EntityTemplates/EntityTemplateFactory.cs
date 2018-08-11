@@ -28,7 +28,9 @@ namespace Assets.Gamelogic.EntityTemplates
               .AddComponent(new ClientConnection.Data(SimulationSettings.TotalHeartbeatsBeforeTimeout), CommonRequirementSets.PhysicsOnly)
               .AddComponent(new ShipControls.Data(0, 0), CommonRequirementSets.SpecificClientOnly(clientWorkerId))
               .AddComponent(new ClientAuthorityCheck.Data(), CommonRequirementSets.SpecificClientOnly(clientWorkerId))
-              .Build();
+			  .AddComponent(new Health.Data(1000), CommonRequirementSets.PhysicsOnly)
+			  .AddComponent(new Score.Data(0), CommonRequirementSets.PhysicsOnly)
+			  .Build();
 
             return playerEntityTemplate;
         }
@@ -92,5 +94,20 @@ namespace Assets.Gamelogic.EntityTemplates
             
             return largeFishTemplate;
         }
-    }
+
+		public static Entity CreatePirateEntityTemplate(Vector3 initialPosition, uint initialRotation)
+		{
+			var pirateEntityTemplate = EntityBuilder.Begin()
+				.AddPositionComponent(initialPosition, CommonRequirementSets.PhysicsOnly)
+				.AddMetadataComponent(SimulationSettings.PirateShipPrefabName)  // Set name of Unity prefab associated with this entity
+				.SetPersistence(true)
+				.SetReadAcl(CommonRequirementSets.PhysicsOrVisual)  // Grant any worker read access to this entity.
+				.AddComponent(new Rotation.Data(initialRotation), CommonRequirementSets.PhysicsOnly)
+				.AddComponent(new ShipControls.Data(0, 0), CommonRequirementSets.PhysicsOnly)
+				.AddComponent(new Health.Data(1000), CommonRequirementSets.PhysicsOnly)
+				.Build();
+
+			return pirateEntityTemplate;
+		}
+	}
 }

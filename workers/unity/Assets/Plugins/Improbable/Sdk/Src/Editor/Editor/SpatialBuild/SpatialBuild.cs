@@ -73,7 +73,7 @@ namespace Improbable.Editor.Addons.SpatialBuild
         /// <inheritdoc cref="ISpatialOsEditorAddon" />
         public void OnDevGui(Rect rect)
         {
-            using (new EditorGUILayout.VerticalScope())
+			using (new EditorGUILayout.VerticalScope())
             {
                 DrawWorkerTargetSelection();
 
@@ -147,7 +147,7 @@ namespace Improbable.Editor.Addons.SpatialBuild
                     }
                 }
             }
-        }
+		}
 
         public void OnSettingsGui(Rect rect)
         {

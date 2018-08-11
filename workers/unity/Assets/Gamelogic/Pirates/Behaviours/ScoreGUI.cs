@@ -1,6 +1,7 @@
 ﻿using Improbable.Core;
 using Improbable.Unity;
 using Improbable.Unity.Visualizer;
+using Improbable.Ship;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,9 @@ namespace Assets.Gamelogic.Pirates.Behaviours
         [Require]
         private ClientAuthorityCheck.Writer ClientAuthorityCheckWriter;
 
-        private GameObject scoreCanvasUI;
+		[Require] private Score.Reader ScoreReader;
+
+		private GameObject scoreCanvasUI;
         private Text totalPointsGUI;
 
         private void Awake()
@@ -34,13 +37,23 @@ namespace Assets.Gamelogic.Pirates.Behaviours
 
         private void OnEnable()
         {
-        }
+			// Register callback for when components change.
+			ScoreReader.NumberOfPointsUpdated.Add(OnNumberOfPointsUpdated);
+		}
 
         private void OnDisable()
         {
-        }
+			// Deregister callback for when components change.
+			ScoreReader.NumberOfPointsUpdated.Remove(OnNumberOfPointsUpdated);
+		}
 
-        void updateGUI(int score)
+		// Callback for whenever one or more property of the Score component is updated
+		private void OnNumberOfPointsUpdated(int numberOfPoints)
+		{
+			updateGUI(numberOfPoints);
+		}
+
+		void updateGUI(int score)
         {
             if (scoreCanvasUI)
             {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 114000012598071580}
   - component: {fileID: 114000014179605780}
   - component: {fileID: 114693494242983540}
+  - component: {fileID: 114518767559133326}
   m_Layer: 0
   m_Name: PirateShip
   m_TagString: Untagged
@@ -191,9 +192,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f354044db981c50408c058c5fff55159, type: 2}
   m_StaticBatchInfo:
@@ -206,6 +209,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -223,9 +227,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: d4071aa9648e6714293f43885a6b609e, type: 2}
   m_StaticBatchInfo:
@@ -238,6 +244,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -349,6 +356,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SinkingAnimation: {fileID: 111887891072063252}
+--- !u!114 &114518767559133326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f1869319714c24ca23cf2cdbc5e7d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114693494242983540
 MonoBehaviour:
   m_ObjectHideFlags: 1
