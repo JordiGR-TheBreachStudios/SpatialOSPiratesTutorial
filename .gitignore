@@ -10,3 +10,12 @@ workers/unity/Assets/Plugins/Improbable/Generated.meta
 workers/unity/Assets/Plugins/Improbable/EntityPrefabs/
 workers/unity/Assets/Plugins/Improbable/EntityPrefabs.meta
 workers/unity/Assets/Plugins/Improbable/Sdk/Dll/Generated.Code.*
+
+# Worker SDK
+dependencies/worker_sdk/
+
+# Generated code from schema
+generated_code/
+
+# Cache from generated code and other metadata
+.spatialos/
