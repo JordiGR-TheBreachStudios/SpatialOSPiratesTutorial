@@ -3,7 +3,7 @@
 # Replace project name below with your own worker name
 # !!! This needs to match the artifact_name in spatialos.<name>.worker.json
 # !!! because ${PROJECT_NAME} is used below when creating the zip target
-project(Managed)
+project(PirateShipMovement)
 cmake_minimum_required(VERSION 3.0)
 
 set(APPLICATION_ROOT "${PROJECT_SOURCE_DIR}/../..")

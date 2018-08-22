@@ -55,7 +55,7 @@
           "command": "cmake",
           "arguments": [
             "--build", ".",
-            "--target", "ManagedZip"
+            "--target", "PirateShipMovementZip"
           ]
         }
       ]
