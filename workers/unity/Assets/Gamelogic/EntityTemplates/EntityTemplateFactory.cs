@@ -92,5 +92,19 @@ namespace Assets.Gamelogic.EntityTemplates
             
             return largeFishTemplate;
         }
+
+        public static Entity CreatePirateEntityTemplate(Vector3 initialPosition, uint initialRotation)
+        {
+            var pirateEntityTemplate = EntityBuilder.Begin()
+                .AddPositionComponent(initialPosition, CommonRequirementSets.PhysicsOnly)
+                .AddMetadataComponent(SimulationSettings.PirateShipPrefabName)
+                .SetPersistence(true)
+                .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+                .AddComponent(new Rotation.Data(initialRotation), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new ShipControls.Data(0, 0), CommonRequirementSets.PhysicsOnly)
+                .Build();
+
+            return pirateEntityTemplate;
+        }
     }
 }
