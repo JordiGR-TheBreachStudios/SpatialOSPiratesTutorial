@@ -40,6 +40,27 @@
           ]
         }
       }]
+    },
+    {
+      "worker_type": "PirateShipMovement",
+      "permissions": [
+        {
+          "entity_creation": {
+            "allow": false
+          },
+          "entity_deletion": {
+            "allow": false
+          },
+          "entity_query": {
+            "allow": false
+          }
+        }
+      ],
+      "load_balancing": {
+        "auto_hex_grid": {
+          "num_workers": 1
+         }
+      }
     }
   ]
 }

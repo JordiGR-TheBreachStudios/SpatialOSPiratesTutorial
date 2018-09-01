@@ -95,13 +95,19 @@ namespace Assets.Gamelogic.EntityTemplates
 
         public static Entity CreatePirateEntityTemplate(Vector3 initialPosition, uint initialRotation)
         {
-            var pirateEntityTemplate = EntityBuilder.Begin()
+			var piratesWorkerAttrSet = Acl.MakeAttributeSet("pirate_ship_movement");
+			var piratesShipControlsAcl = Acl.MakeRequirementSet(piratesWorkerAttrSet);
+			var pirateShipReadAcl = Acl.MakeRequirementSet(piratesWorkerAttrSet,
+				CommonAttributeSets.Physics,
+				CommonAttributeSets.Visual);
+
+			var pirateEntityTemplate = EntityBuilder.Begin()
                 .AddPositionComponent(initialPosition, CommonRequirementSets.PhysicsOnly)
                 .AddMetadataComponent(SimulationSettings.PirateShipPrefabName)
                 .SetPersistence(true)
-                .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+                .SetReadAcl(pirateShipReadAcl)
                 .AddComponent(new Rotation.Data(initialRotation), CommonRequirementSets.PhysicsOnly)
-                .AddComponent(new ShipControls.Data(0, 0), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new ShipControls.Data(0, 0), piratesShipControlsAcl)
                 .Build();
 
             return pirateEntityTemplate;
